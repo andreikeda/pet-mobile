@@ -22,6 +22,63 @@
         app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    
+    <ImageView
+        android:id="@+id/pet_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/pet_image_description"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@id/top_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/top_view"/>
+
+    <TextView
+        android:id="@+id/energy_textview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:gravity="center_vertical"
+        android:text="@string/attr_energy_formatted"
+        app:layout_constraintBottom_toTopOf="@+id/hunger_textview"
+        app:layout_constraintEnd_toStartOf="@+id/hygiene_textview"
+        app:layout_constraintStart_toStartOf="@id/bottom_view"
+        app:layout_constraintTop_toTopOf="@id/bottom_view"/>
+
+    <TextView
+        android:id="@+id/hygiene_textview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:gravity="center_vertical|end"
+        android:text="@string/attr_hygiene_formatted"
+        app:layout_constraintBottom_toTopOf="@+id/fun_textview"
+        app:layout_constraintEnd_toEndOf="@id/bottom_view"
+        app:layout_constraintStart_toEndOf="@id/energy_textview"
+        app:layout_constraintTop_toTopOf="@id/bottom_view"/>
+
+    <TextView
+        android:id="@+id/hunger_textview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:gravity="center_vertical"
+        android:text="@string/attr_hunger_formatted"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_view"
+        app:layout_constraintEnd_toStartOf="@+id/fun_textview"
+        app:layout_constraintStart_toStartOf="@id/bottom_view"
+        app:layout_constraintTop_toBottomOf="@id/energy_textview"/>
+
+    <TextView
+        android:id="@+id/fun_textview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:gravity="center_vertical|end"
+        android:text="@string/attr_fun_formatted"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_view"
+        app:layout_constraintEnd_toEndOf="@id/bottom_view"
+        app:layout_constraintStart_toEndOf="@id/hunger_textview"
+        app:layout_constraintTop_toBottomOf="@id/hygiene_textview"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

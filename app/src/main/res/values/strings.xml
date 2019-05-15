@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Pet Mobile</string>
+
+    <string name="attr_energy_formatted">Energy: %d|100</string>
+    <string name="attr_fun_formatted">Fun: %d|100</string>
+    <string name="attr_hunger_formatted">Hunger: %d|100</string>
+    <string name="attr_hygiene_formatted">Hygiene: %d|100</string>
+
+    <string name="pet_image_description">Pet image</string>
 </resources>
