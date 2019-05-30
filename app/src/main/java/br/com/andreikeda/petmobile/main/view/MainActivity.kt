@@ -3,6 +3,7 @@ package br.com.andreikeda.petmobile.main.view
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.CountDownTimer
 import androidx.appcompat.app.AppCompatActivity
 import br.com.andreikeda.petmobile.R
 import br.com.andreikeda.petmobile.main.contract.MainContract
@@ -10,10 +11,12 @@ import br.com.andreikeda.petmobile.main.presenter.MainPresenterImpl
 import kotlinx.android.synthetic.main.activity_main.*
 
 private const val SHARED_PREFERENCES = "PET_MOBILE"
+private const val TICKER_TIME = 10 * 1000L
 
 class MainActivity : AppCompatActivity(), MainContract.View {
 
     private var mPresenter: MainContract.Presenter? = null
+    private var mTimer: CountDownTimer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,5 +84,26 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     override fun sendNotificationLowHygiene() {
+    }
+
+    override fun disposeTimer() {
+        mTimer?.apply {
+            cancel()
+        }
+
+        mTimer = null
+    }
+
+    override fun startTimer() {
+        if (mTimer == null) {
+            mTimer = object : CountDownTimer(TICKER_TIME, 0) {
+                override fun onTick(millisUntilFinished: Long) {}
+
+                override fun onFinish() {
+                    mPresenter?.onActivityResumed()
+                }
+            }
+        }
+        mTimer?.start()
     }
 }

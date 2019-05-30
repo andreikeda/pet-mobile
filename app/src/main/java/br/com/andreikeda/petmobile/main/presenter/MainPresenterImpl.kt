@@ -87,6 +87,10 @@ class MainPresenterImpl(var view: MainContract.View?) : MainContract.Presenter,
             updateHunger()
             updateHygiene()
         }
+        view?.apply {
+            disposeTimer()
+            startTimer()
+        }
     }
 
     override fun onActivityPaused() {

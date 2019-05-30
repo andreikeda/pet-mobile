@@ -64,5 +64,9 @@ interface MainContract {
         fun setHungerText(value: Int)
 
         fun setHygieneText(value: Int)
+
+        fun disposeTimer()
+
+        fun startTimer()
     }
 }
